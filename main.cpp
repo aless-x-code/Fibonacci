@@ -1,31 +1,33 @@
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main(int argc, char *const argv[])
 {
-  int nth, loc1 = 0, loc2 = 1, fibo = 0, position = 0;
+    long seeked_index, fibo_index, fibo_index_value, index_1, index_2;
+    
+    fibo_index = 3; // (counting the first index as 1) we initialize our sequence at index 3
+    fibo_index_value = 2; // correspondingly, we initialize index value as 2
+    
+    index_1 = 1; // holds the before-last fibonacci number
+    index_2 = 1; // hold the current fibonacci number
+    
+    cout << "Enter the seeked position value from the fibonacci sequence: ";
+    cin >> seeked_index;
+    
+    // fail safe
+    if (seeked_index == 1) fibo_index_value = 1;
+    
+    // while the position is lower than position given..
+    for ( ; fibo_index < seeked_index; fibo_index++)
+    {
+        // fibonacci logic
+        index_1 = index_2; // shift index_1 forward to become the before-last leading number (aka fibonacci)
+        index_2 = fibo_index_value; // shift index_2 forward to become the leading number (aka fibonacci)
+        fibo_index_value = index_1 + index_2; // sum the before-last leading number, and leading number, to get the next leading number (aka fibonacci)
 
-  cout << "Enter a position ";
-  cin >> nth;
-
-  // fail safe
-  if (nth == 1)
-    fibo = 1;
-
-  // position adjustment : program can't calculate 1st position (since previous positions of 1 are 0 and 0), so we start sequence at 2nd position, so we have to adjust actual position by deducting -1
-  nth = nth - 1;
-
-  // while the position is lower than position given..
-  while (position < nth)
-  {
-    // fibonacci logic
-    fibo = loc1 + loc2; // fibonacci = location1 (intialy 0) + location2 (intialy 1)
-    loc1 = loc2;        // then, location1 shifts to location2 (location1 = 1)
-    loc2 = fibo;        // and, location2 becomes the fibonacci number (location2 = 1)
-
-    // each iteration, position is increased by 1
-    position++;
-  }
-  cout << fibo << " <<-- FIBONACCI" << endl;
+    }
+    cout << "The value of position #" << seeked_index << " is: " << fibo_index_value << endl;
 }
+
