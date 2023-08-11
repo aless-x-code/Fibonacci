@@ -20,3 +20,4 @@ fibo_index_value = 34
 index_1 = 21 // re-assign as index_2
 index_2 = 34 // re-assign as fibo_index_value
 fibo_index_value = 55 // add index_1 and index_2
+
