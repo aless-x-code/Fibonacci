@@ -11,7 +11,7 @@ Thereafter, index_1 becomes index_2 (which is now the before-last number), index
 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89  – Fibonacci sequence  
 1, 2, 3, 4, 5, 6, 7,  8,  9,  10, 11  – Fibonacci index
 
-index_1 = 13  
+index_1 = 13  <br>
 index_2 = 21  
 fibo_index_value = 34  
 
